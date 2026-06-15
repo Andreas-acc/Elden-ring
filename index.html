@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elden Ring – Din guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #c8921a;
+    --gold-light: #f0c060;
+    --gold-dim: #a07840;
+    --bg: #0e0c08;
+    --bg-card: #141209;
+    --bg-card-hover: #1a1610;
+    --bg-locked: #111009;
+    --border: #2a2218;
+    --border-gold: #3a2a10;
+    --text-primary: #e8d8b0;
+    --text-secondary: #9a8868;
+    --text-muted: #5a5040;
+    --tip-mechanic-bg: #12101a;
+    --tip-mechanic-border: #2a2040;
+    --tip-item-bg: #0e1208;
+    --tip-item-border: #1e2a10;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .container { max-width: 680px; margin: 0 auto; }
+
+  .hero {
+    position: relative;
+    border: 0.5px solid var(--border-gold);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    background: #100d07;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8921a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: var(--gold-dim); margin-bottom: 0.5rem; text-transform: uppercase; }
+  .hero-title { font-family: 'Cinzel', serif; font-size: 26px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.25rem; line-height: 1.2; }
+  .hero-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 1.5rem; }
+  .progress-bar { background: #1a1408; border-radius: 3px; height: 4px; overflow: hidden; margin-bottom: 0.5rem; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 3px; transition: width 0.5s ease; }
+  .progress-label { font-size: 12px; color: var(--text-muted); }
+
+  .section { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius); margin-bottom: 0.75rem; overflow: hidden; transition: border-color 0.2s; }
+  .section.unlocked { border-color: #2a2010; }
+  .section.unlocked:hover { border-color: #3a3018; }
+  .section-header { padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; transition: background 0.15s; }
+  .section.unlocked .section-header:hover { background: var(--bg-card-hover); }
+  .section-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .icon-active { background: #c8921a18; color: var(--gold); border: 0.5px solid #c8921a30; }
+  .icon-locked { background: #1a1810; color: var(--text-muted); border: 0.5px solid var(--border); }
+  .section-title { flex: 1; }
+  .section-title h3 { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; font-family: 'Cinzel', serif; letter-spacing: 0.3px; }
+  .section-title p { font-size: 12px; color: var(--text-muted); }
+  .section-badge { font-size: 11px; padding: 3px 9px; border-radius: 20px; font-weight: 500; letter-spacing: 0.3px; }
+  .badge-active { background: #c8921a18; color: var(--gold); border: 0.5px solid #c8921a30; }
+  .badge-locked { background: #1a1810; color: var(--text-muted); border: 0.5px solid var(--border); }
+  .chevron { color: var(--text-muted); font-size: 16px; transition: transform 0.25s ease; }
+  .chevron.open { transform: rotate(180deg); }
+
+  .section-body { border-top: 0.5px solid var(--border); padding: 1.5rem; }
+  .section-body p { font-size: 14px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1rem; }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  .tip-group { margin-bottom: 1.25rem; }
+  .tip-group:last-child { margin-bottom: 0; }
+  .tip-group-title { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); margin-bottom: 0.6rem; }
+  .tip { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: var(--radius-sm); margin-bottom: 6px; border: 0.5px solid transparent; }
+  .tip:last-child { margin-bottom: 0; }
+  .tip-mechanic { background: var(--tip-mechanic-bg); border-color: var(--tip-mechanic-border); }
+  .tip-item { background: var(--tip-item-bg); border-color: var(--tip-item-border); }
+  .tip-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .tip-text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .tip-text strong { color: var(--text-primary); font-weight: 500; }
+
+  .locked-body { border-top: 0.5px solid var(--border); padding: 1.25rem 1.5rem; }
+  .locked-inner { display: flex; align-items: center; gap: 16px; }
+  .lock-icon-big { width: 44px; height: 44px; border-radius: 50%; background: #1a1810; border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--text-muted); font-size: 18px; }
+  .locked-text { flex: 1; }
+  .locked-text p { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+  .unlock-row { display: flex; gap: 8px; align-items: center; }
+  .unlock-input { flex: 1; padding: 8px 12px; font-size: 13px; border-radius: var(--radius-sm); border: 0.5px solid #2a2218; background: #0a0906; color: var(--text-primary); outline: none; font-family: 'Inter', sans-serif; transition: border-color 0.2s; }
+  .unlock-input::placeholder { color: var(--text-muted); }
+  .unlock-input:focus { border-color: var(--gold); }
+  .unlock-btn { padding: 8px 14px; font-size: 13px; border-radius: var(--radius-sm); border: 0.5px solid var(--gold); background: transparent; color: var(--gold); cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.15s; white-space: nowrap; }
+  .unlock-btn:hover { background: #c8921a15; }
+  .unlock-error { font-size: 12px; color: #c04040; margin-top: 6px; display: none; }
+
+  @media (max-width: 480px) {
+    .hero { padding: 1.75rem 1.25rem 1.5rem; }
+    .hero-title { font-size: 20px; }
+    .locked-inner { flex-direction: column; align-items: flex-start; }
+    .lock-icon-big { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-eyebrow">Spoilerfri guide</div>
+    <div class="hero-title">⚔ Elden Ring</div>
+    <div class="hero-sub">Lås opp seksjonene etter hvert som du spiller</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+    <div class="progress-label" id="prog-label"></div>
+  </div>
+  <div id="sections-container"></div>
+</div>
+
+<script>
+const SECTIONS = [
+  { id: 's0', title: 'Grunnleggende mekanikker', subtitle: 'Les dette først', icon: 'ti-bulb', badge: 'Start her', type: 'tips', tips: [ { group: 'Viktige mekanikker', items: [ { type: 'mechanic', icon: '🔥', text: '<strong>Sites of Grace</strong> er dine sjekkpunkter og respawn-punkter. Alltid aktiver disse når du ser dem – de lyser opp som gylne støvfontener.' }, { type: 'mechanic', icon: '💀', text: 'Når du dør mister du alle Runes (spillets valuta/XP). Du kan hente dem tilbake ved å gå tilbake dit du døde – men dør du igjen underveis er de borte for alltid.' }, { type: 'mechanic', icon: '⚡', text: '<strong>Stamina</strong> (den grønne streken) styrer alt – angrep, blokkering og rulling. Pass på at den ikke går tom midt i en kamp.' }, { type: 'mechanic', icon: '🛡️', text: '<strong>Rolling (dodge)</strong> gir deg et kort øyeblikk av uovervinnelighet. Lær timingen – det er viktigere enn å blokkere.' }, { type: 'mechanic', icon: '🗡️', text: '<strong>Backstab:</strong> Sneik bak en fiende og trykk lett angrep for å gjøre massiv skade. Mange fiender kan backstabbes.' } ] }, { group: 'Gode vaner', items: [ { type: 'item', icon: '⚠️', text: '<strong>Ikke rush.</strong> Elden Ring belønner utforskning. Ta deg god tid i hvert område.' }, { type: 'item', icon: '🌿', text: 'Hvis et område føles for vanskelig – prøv et annet sted! Verden er åpen.' }, { type: 'item', icon: '🔮', text: '<strong>Memorize spells</strong> og <strong>Ashes of War</strong> glemmes av mange. Sjekk Sites of Grace-menyen jevnlig.' } ] } ] },
+  { id: 's1', title: 'Limgrave', subtitle: 'Der du er nå', icon: 'ti-map-pin', badge: 'Nåværende', type: 'prose', prose: [ 'Elden Ring er stort og det kan føles overveldende – men det er en del av opplevelsen. Ta deg god tid, utforsk i alle retninger og snakk med alle du møter.', 'Følg de gyldne lysglimtene fra Sites of Grace – de peker deg generelt i riktig retning. Hesten din er din beste venn; du får den tidlig, ikke gå glipp av det.', 'Hvis du snubler inn i et område som føles helt umulig og alt er rødt og sykt – ikke fortvil. Det kan hende du har funnet et sted du ikke er klar for enda. Elden Ring er åpen, og det er lov å snu.' ] },
+  { id: 's2', title: 'Stormveil Castle', subtitle: 'Etter Margit', icon: 'ti-castle', badge: 'Låst', password: 'stormveil', hint: 'Lås opp når du har slått Margit', type: 'prose', prose: [ 'Borgen er stor og kan virke overveldende, men ikke stress. Det finnes flere veier frem enn du kanskje tror – utforsk sideganger og vær nysgjerrig.', 'Snakk med alle du møter, og vær litt kritisk til de du ikke stoler på. Borgen belønner de som tar seg tid.' ] },
+  { id: 's3', title: 'Liurnia of the Lakes', subtitle: 'Etter Stormveil', icon: 'ti-droplet', badge: 'Låst', password: 'liurnia', hint: 'Lås opp når du er ferdig med Stormveil', type: 'prose', prose: [ 'Etter Stormveil åpner verden seg skikkelig. Liurnia er vakkert, stort og fullt av hemmeligheter – både over og under bakken. Ikke stress med å finne "riktig" vei, bare vær nysgjerrig.', 'Stormveil Castle var forresten verken det første eller siste slottet du skal inn i.', 'Det finnes også en mystisk struktur med fire tårn i området – hva den gjør får du se selv.' ] },
+  { id: 's4', title: 'Caelid', subtitle: 'Valgfritt, men viktig', icon: 'ti-skull', badge: 'Låst', password: 'caelid', hint: 'Lås opp når du er klar for Caelid', type: 'prose', prose: [ 'Så, du har vært her allerede. Caelid er et av spillets råeste områder – rødt, sykt og nådeløst. Men når du er klar er det veldig givende å utforske grundig. Nordlige deler er farligere enn sør, så ta det gradvis.', 'Det lurer seg en festival i Caelid du ikke vil gå glipp av.', 'Hold øye med en syk kvinne du møter tidlig i området. Hennes historie er en av de mest minneverdige i hele spillet, og det lønner seg å følge den til ende.' ] },
+  { id: 's5', title: 'Altus Plateau', subtitle: 'Midtveis i spillet', icon: 'ti-mountain', badge: 'Låst', password: 'altus', hint: 'Lås opp ved Altus-platået', type: 'prose', prose: [ 'Veien opp til Altus føles som et vendepunkt i spillet – verden åpner seg på nytt og det er mye å utforske i alle retninger. Det finnes mer enn én vei opp, spør meg hvis du står fast.', 'Leyndell, den kongelige hovedstaden, venter deg et sted herfra. Men det er mye å oppdage underveis – fjell, slott og folk med mørke hemmeligheter. Ta deg god tid og snakk med alle du møter.', 'Du vil også begynne å kjenne igjen visse navn og ansikter. Elden Ring begynner å binde seg sammen her.' ] },
+  { id: 's6', title: 'Leyndell, Royal Capital', subtitle: 'Den kongelige hovedstaden', icon: 'ti-building', badge: 'Låst', password: 'leyndell', hint: 'Lås opp ved Leyndell', type: 'prose', prose: [ 'Leyndell er stort, vakkert og overveldende på samme tid. En hel by å utforske – ta deg god tid og vær nysgjerrig i alle kroker og hjørner.', 'En advarsel: ikke alt som ser ut som bakgrunnspynt er det. Noe av det største og farligste i spillet gjemmer seg midt i byen – du vil vite når du møter det.', 'Det finnes flere interessante sjeler å snakke med her, både kjente ansikter og nye. Noen av historiene deres er rørende, andre er mørkere. Følg dem alle.', 'Under byen gjemmer det seg noe. Det er ikke lett å finne, men er du typen som liker å lete i mørke kroker er det verdt det.', 'Elden Ring begynner å nærme seg sitt klimaks her – nyt det.' ] },
+  { id: 's7', title: 'Endgame', subtitle: 'Mountaintops of the Giants', icon: 'ti-crown', badge: 'Låst', password: 'erdtree', hint: 'Lås opp når du nærmer deg slutten', type: 'prose', prose: [ 'Velkommen til mitt favorittsted i Elden Ring. Første gang man kommer hit er det vanskelig å ikke bare stå stille og se seg rundt.', 'Det er mye som venter deg her oppe – noen av spillets største øyeblikk, hemmelige områder som krever litt detektivarbeid for å finne, og noen av de mest episke bossene i hele spillet. En av dem er kanskje den vanskeligste boss du noen gang har møtt i et videospill. Du vet hvem.', 'Husk den syke kvinnen fra Caelid? Følg historien hennes til ende. Det lønner seg.', 'Ta deg tid her oppe. Elden Ring gir deg alt det har her mot slutten – nyt hvert øyeblikk.' ] }
+];
+
+const STORAGE_KEY = 'er_guide_v3';
+let unlocked = new Set(['s0', 's1']);
+try { JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]').forEach(x => unlocked.add(x)); } catch(e) {}
+function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...unlocked])); } catch(e) {} }
+
+function updateProgress() {
+  const pct = Math.round((unlocked.size / SECTIONS.length) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-label').textContent = 'Del ' + unlocked.size + ' av ' + SECTIONS.length + ' tilgjengelig';
+}
+
+function renderTips(tips) {
+  return tips.map(g => `<div class="tip-group"><div class="tip-group-title">${g.group}</div>${g.items.map(t => `<div class="tip tip-${t.type}"><span class="tip-icon">${t.icon}</span><span class="tip-text">${t.text}</span></div>`).join('')}</div>`).join('');
+}
+
+function renderProse(prose) {
+  return prose.map(p => `<p>${p}</p>`).join('');
+}
+
+function renderSection(s) {
+  const open = unlocked.has(s.id);
+  return `<div class="section ${open ? 'unlocked' : ''}" id="sec-${s.id}">
+    <div class="section-header" onclick="toggleSection('${s.id}')">
+      <div class="section-icon ${open ? 'icon-active' : 'icon-locked'}"><i class="ti ${s.icon}" aria-hidden="true"></i></div>
+      <div class="section-title"><h3>${s.title}</h3><p>${s.subtitle}</p></div>
+      <span class="section-badge ${open ? 'badge-active' : 'badge-locked'}">${open && s.badge === 'Låst' ? 'Ulåst' : s.badge}</span>
+      ${open ? `<i class="ti ti-chevron-down chevron open" id="chev-${s.id}" aria-hidden="true"></i>` : ''}
+    </div>
+    <div id="body-${s.id}" style="display:${open ? 'block' : 'none'}">
+      ${open ? `<div class="section-body">${s.type === 'tips' ? renderTips(s.tips) : renderProse(s.prose)}</div>`
+              : `<div class="locked-body"><div class="locked-inner"><div class="lock-icon-big"><i class="ti ti-lock" aria-hidden="true"></i></div><div class="locked-text"><p>${s.hint} – spør meg når du er klar!</p><div class="unlock-row"><input class="unlock-input" type="password" placeholder="Skriv inn kode..." id="inp-${s.id}" onkeydown="if(event.key==='Enter') tryUnlock('${s.id}','${s.password}')"><button class="unlock-btn" onclick="tryUnlock('${s.id}','${s.password}')">Lås opp</button></div><div class="unlock-error" id="err-${s.id}">Feil kode – prøv igjen!</div></div></div></div>`}
+    </div>
+  </div>`;
+}
+
+function toggleSection(id) {
+  if (!unlocked.has(id)) return;
+  const body = document.getElementById('body-' + id);
+  const chev = document.getElementById('chev-' + id);
+  if (!body) return;
+  const isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  if (chev) chev.classList.toggle('open', !isOpen);
+}
+
+function tryUnlock(id, pw) {
+  const inp = document.getElementById('inp-' + id);
+  const err = document.getElementById('err-' + id);
+  if (inp.value.trim().toLowerCase() === pw.toLowerCase()) {
+    unlocked.add(id); save();
+    document.getElementById('sections-container').innerHTML = SECTIONS.map(renderSection).join('');
+    updateProgress();
+  } else {
+    err.style.display = 'block';
+    inp.style.borderColor = '#803030';
+    setTimeout(() => { err.style.display = 'none'; inp.style.borderColor = ''; }, 2000);
+  }
+}
+
+document.getElementById('sections-container').innerHTML = SECTIONS.map(renderSection).join('');
+updateProgress();
+</script>
+</body>
+</html>
