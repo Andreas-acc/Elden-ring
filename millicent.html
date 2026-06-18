@@ -115,7 +115,7 @@ const STEPS = [
       "Følg Caelid Highway østover. Like før du når Sellia, Town of Sorcery ser du en liten hytte på høyre side – dette er Gowry's Shack. En gammel mann ved navn Gowry sitter inne. Snakk med ham og hør hva han vil ha fra deg.",
       "Han forteller deg om en syk ung kvinne som trenger hjelp, og ber deg finne en Unalloyed Gold Needle. Til gjengjeld forteller han deg hemmeligheten bak Sellias magiske barrierer."
     ],
-    img: "Caelid overview.png",
+    img: "Caelid%20overview.png",
     imgCaption: "Gowry's Shack (høyre) og Sellia (øverst) – følg veien østover"
   },
   {
@@ -126,7 +126,7 @@ const STEPS = [
       "Nålen du trenger dropper fra Commander O'Neil – en boss i midten av Aeonia Swamp, det store røde sumpområdet i Caelid. Det er et Site of Grace like nordvest for ham.",
       "Tips: Slåss mot ham på hesteryggen – det begrenser movesetet hans og gjør det enklere å unngå de brede sveipangrepene hans."
     ],
-    img: "Caelid overview.png",
+    img: "Caelid%20overview.png",
     imgCaption: "Needle Location markert på kartet – midt i Aeonia Swamp"
   },
   {
@@ -147,7 +147,7 @@ const STEPS = [
     ],
     img: "Braziers.png",
     imgCaption: "De tre lyktenes plassering i Sellia – klatr på takene for å nå dem",
-    img2: "church of the plague.png",
+    img2: "church%20of%20the%20plague.png",
     img2Caption: "Church of the Plague – nordøst for Sellia"
   },
   {
@@ -166,9 +166,9 @@ const STEPS = [
       "Millicent er nå ved Erdtree Gazing Hill Site of Grace i Altus Plateau – hun står litt nord for graceN, nær kanten av klippen. Snakk med henne.",
       "Hun trenger en Valkyrie's Prosthesis – en kunstig arm. Den finner du i Shaded Castle nord i Altus. Gå dit, finn kisten inne i borgen (pass deg for de giftige fiendene) og hent armen. Kom tilbake og gi den til Millicent."
     ],
-    img: "erdtree gazing hill.png",
+    img: "erdtree%20gazing%20hill.png",
     imgCaption: "Erdtree Gazing Hill – Millicent står nord for Site of Grace",
-    img2: "shaded castle.png",
+    img2: "shaded%20castle.png",
     img2Caption: "Shaded Castle – nord i Altus Plateau, hent Valkyrie's Prosthesis her"
   },
   {
@@ -186,7 +186,7 @@ const STEPS = [
     text: [
       "Etter at du har slått bossen øverst i Windmill Village – hvil ved Windmill Heights Site of Grace. Millicent er rett ved siden av graceN. Snakk med henne, hun er glad for armen sin og begynner å finne sin egen styrke."
     ],
-    img: "windmill village.png",
+    img: "windmill%20village.png",
     imgCaption: "Windmill Village – nordøst i Altus, Millicent er ved Windmill Heights Site of Grace"
   },
   {
@@ -196,7 +196,7 @@ const STEPS = [
     text: [
       "Neste gang du møter Millicent er i Mountaintops of the Giants. Se etter henne ved Ancient Snow Valley Ruins Site of Grace, sør for Castle Sol. Snakk med henne – hun gir deg et hint om den hemmelige medaljongen til Haligtree."
     ],
-    img: "ancient snow valley ruins og castle sol.png",
+    img: "ancient%20snow%20valley%20ruins%20og%20castle%20sol.png",
     imgCaption: "Ancient Snow Valley Ruins – Millicent venter her i Mountaintops"
   },
   {
@@ -206,7 +206,7 @@ const STEPS = [
     text: [
       "Når du har kommet deg til Haligtree finner du Millicent ved Prayer Room Site of Grace. Snakk med henne og fortsett videre inn i Haligtree."
     ],
-    img: "prayer room.png",
+    img: "prayer%20room.png",
     imgCaption: "Prayer Room – Millicent venter her inne i Haligtree"
   },
   {
@@ -224,7 +224,7 @@ const STEPS = [
     text: [
       "Tilbake ved Drainage Channel vil det dukke opp to tegn på bakken – et gull og et rødt. Dette er questlinens klimaks."
     ],
-    img: "siste site før slutten av quest.png",
+    img: "siste%20site%20f%C3%B8r%20slutten%20av%20quest.png",
     imgCaption: "Elphael Inner Wall – det store valget skjer like herfra",
     warning: "Tenk deg godt om! De to valgene gir forskjellige belønninger og utfall for Millicents skjebne.",
     choices: [
@@ -257,9 +257,9 @@ function renderStep(s, i) {
       <span class="chevron" id="chev-${s.num}">▼</span>
     </div>
     <div class="step-body" id="body-${s.num}">
-      ${s.img ? `<img src="${BASE}${encodeURIComponent(s.img)}" alt="${s.imgCaption}" class="map-img" loading="lazy"><p class="map-caption">${s.imgCaption}</p>` : ''}
+      ${s.img ? `<img src="${BASE}${s.img}" alt="${s.imgCaption}" class="map-img" loading="lazy"><p class="map-caption">${s.imgCaption}</p>` : ''}
       ${s.text ? s.text.map(t => `<p>${t}</p>`).join('') : ''}
-      ${s.img2 ? `<img src="${BASE}${encodeURIComponent(s.img2)}" alt="${s.img2Caption}" class="map-img" loading="lazy"><p class="map-caption">${s.img2Caption}</p>` : ''}
+      ${s.img2 ? `<img src="${BASE}${s.img2}" alt="${s.img2Caption}" class="map-img" loading="lazy"><p class="map-caption">${s.img2Caption}</p>` : ''}
       ${s.warning ? `<div class="warning-box">⚠️ ${s.warning}</div>` : ''}
       ${s.choices ? s.choices.map(c => `<div class="choice-box ${c.type === 'gold' ? 'choice-gold' : 'choice-red'}">${c.text}</div>`).join('') : ''}
       ${s.reward ? `<div class="reward-box">🎁 Belønning: ${s.reward}</div>` : ''}
