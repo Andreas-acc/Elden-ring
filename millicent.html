@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Millicent Questline – Elden Ring Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #c8921a; --gold-light: #f0c060; --gold-dim: #a07840;
+    --bg: #0e0c08; --bg-card: #141209; --bg-card-hover: #1a1610;
+    --border: #2a2218; --border-gold: #3a2a10;
+    --text-primary: #e8d8b0; --text-secondary: #9a8868; --text-muted: #5a5040;
+    --radius: 10px; --radius-sm: 6px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; min-height: 100vh; padding: 2rem 1rem 4rem; }
+  .container { max-width: 680px; margin: 0 auto; }
+
+  .hero { position: relative; border: 0.5px solid var(--border-gold); border-radius: var(--radius); padding: 2.5rem 2rem 2rem; margin-bottom: 2rem; overflow: hidden; background: #100d07; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8921a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: var(--gold-dim); margin-bottom: 0.5rem; text-transform: uppercase; }
+  .hero-title { font-family: 'Cinzel', serif; font-size: 24px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.25rem; }
+  .hero-sub { font-size: 13px; color: var(--text-secondary); }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gold-dim); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+
+  .step { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden; }
+  .step-header { padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; transition: background 0.15s; }
+  .step-header:hover { background: var(--bg-card-hover); }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: #c8921a18; border: 0.5px solid #c8921a30; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); flex-shrink: 0; }
+  .step-title { flex: 1; }
+  .step-title h3 { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+  .step-title p { font-size: 12px; color: var(--text-muted); }
+  .chevron { color: var(--text-muted); font-size: 16px; transition: transform 0.25s ease; }
+  .chevron.open { transform: rotate(180deg); }
+
+  .step-body { border-top: 0.5px solid var(--border); padding: 1.25rem 1.5rem; display: none; }
+  .step-body.open { display: block; }
+  .step-body p { font-size: 14px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 0.75rem; }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  .map-img { width: 100%; border-radius: var(--radius-sm); border: 0.5px solid var(--border); margin: 1rem 0; display: block; }
+  .map-caption { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: -0.5rem; margin-bottom: 0.75rem; }
+
+  .warning-box { background: #1a1208; border: 0.5px solid var(--border-gold); border-radius: var(--radius-sm); padding: 10px 14px; margin: 1rem 0; font-size: 13px; color: var(--gold-dim); line-height: 1.6; }
+
+  .reward-box { background: #0a1a0a; border: 0.5px solid #1a3a1a; border-radius: var(--radius-sm); padding: 10px 14px; margin: 1rem 0; font-size: 13px; color: #4caf50; line-height: 1.6; }
+
+  .choice-box { border-radius: var(--radius-sm); padding: 12px 14px; margin: 0.5rem 0; font-size: 13px; line-height: 1.6; }
+  .choice-gold { background: #1a1208; border: 0.5px solid var(--border-gold); color: var(--gold-dim); }
+  .choice-red { background: #1a0808; border: 0.5px solid #3a1010; color: #c05050; }
+
+  .progress { display: flex; gap: 4px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .progress-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: background 0.3s; cursor: pointer; }
+  .progress-dot.done { background: var(--gold); }
+  .progress-dot.active { background: var(--gold-light); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <a href="/" class="back-link">← Tilbake til guiden</a>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Questline guide</div>
+    <div class="hero-title">Millicent</div>
+    <div class="hero-sub">En av spillets mest rørende historier – fra Caelid til Haligtree</div>
+  </div>
+
+  <div class="progress" id="progress-dots"></div>
+
+  <div id="steps-container"></div>
+
+</div>
+
+<script>
+const BASE = 'https://raw.githubusercontent.com/Andreas-acc/Elden-ring/main/images/';
+
+const STEPS = [
+  {
+    num: 1,
+    title: "Gowry's Shack, Caelid",
+    location: "Østlige Caelid, rett ved Sellia",
+    text: [
+      "Følg Caelid Highway østover. Like før du når Sellia, Town of Sorcery ser du en liten hytte på høyre side – dette er Gowry's Shack. En gammel mann ved navn Gowry sitter inne. Snakk med ham og hør hva han vil ha fra deg.",
+      "Han forteller deg om en syk ung kvinne som trenger hjelp, og ber deg finne en Unalloyed Gold Needle. Til gjengjeld forteller han deg hemmeligheten bak Sellias magiske barrierer."
+    ],
+    img: "Caelid overview.png",
+    imgCaption: "Gowry's Shack (høyre) og Sellia (øverst) – følg veien østover"
+  },
+  {
+    num: 2,
+    title: "Commander O'Neil, Swamp of Aeonia",
+    location: "Midten av Aeonia Swamp, Caelid",
+    text: [
+      "Nålen du trenger dropper fra Commander O'Neil – en boss i midten av Aeonia Swamp, det store røde sumpområdet i Caelid. Det er et Site of Grace like nordvest for ham.",
+      "Tips: Slåss mot ham på hesteryggen – det begrenser movesetet hans og gjør det enklere å unngå de brede sveipangrepene hans."
+    ],
+    img: "Caelid overview.png",
+    imgCaption: "Needle Location markert på kartet – midt i Aeonia Swamp"
+  },
+  {
+    num: 3,
+    title: "Tilbake til Gowry",
+    location: "Gowry's Shack, Caelid",
+    text: [
+      "Gi nålen til Gowry. Han trenger litt tid til å reparere den – hvil ved et Site of Grace i nærheten og kom tilbake. Han gir deg den reparerte Unalloyed Gold Needle."
+    ]
+  },
+  {
+    num: 4,
+    title: "Church of the Plague – Gi Millicent nålen",
+    location: "Nordøst for Sellia",
+    text: [
+      "For å komme til Church of the Plague må du først låse opp barrierer i Sellia, Town of Sorcery ved å tenne tre lykter på takene i byen. Gowry fortalte deg hemmeligheten – klatr opp på takene via røttene og stiene, finn de tre lyktene og tenn dem.",
+      "Etter at barriereene er nede, følg veien nordøst ut av Sellia – Church of the Plague er like der. Gi Millicent den reparerte nålen og hvil ved Site of Grace inne i kirken. Hun vil reise seg."
+    ],
+    img: "Braziers.png",
+    imgCaption: "De tre lyktenes plassering i Sellia – klatr på takene for å nå dem",
+    img2: "church of the plague.png",
+    img2Caption: "Church of the Plague – nordøst for Sellia"
+  },
+  {
+    num: 5,
+    title: "Tilbake til Gowry igjen",
+    location: "Gowry's Shack, Caelid",
+    text: [
+      "Snakk med Gowry en gang til. Snakk deretter med Millicent inne i hytten hans og hvil ved et Site of Grace – hun vil ha forlatt stedet og er nå på vei til Altus Plateau."
+    ]
+  },
+  {
+    num: 6,
+    title: "Erdtree Gazing Hill – Gi henne armen",
+    location: "Altus Plateau",
+    text: [
+      "Millicent er nå ved Erdtree Gazing Hill Site of Grace i Altus Plateau – hun står litt nord for graceN, nær kanten av klippen. Snakk med henne.",
+      "Hun trenger en Valkyrie's Prosthesis – en kunstig arm. Den finner du i Shaded Castle nord i Altus. Gå dit, finn kisten inne i borgen (pass deg for de giftige fiendene) og hent armen. Kom tilbake og gi den til Millicent."
+    ],
+    img: "erdtree gazing hill.png",
+    imgCaption: "Erdtree Gazing Hill – Millicent står nord for Site of Grace",
+    img2: "shaded castle.png",
+    img2Caption: "Shaded Castle – nord i Altus Plateau, hent Valkyrie's Prosthesis her"
+  },
+  {
+    num: 7,
+    title: "Hvil og gå til Windmill Village",
+    location: "Altus Plateau",
+    text: [
+      "Etter at du har gitt Millicent armen – hvil ved et Site of Grace. Hun har nå flyttet seg til Windmill Village nordøst i Altus. Dra dit og slå bossen øverst i landsbyen (Godskin Apostle)."
+    ]
+  },
+  {
+    num: 8,
+    title: "Windmill Village – Snakk med Millicent",
+    location: "Nordøst i Altus Plateau",
+    text: [
+      "Etter at du har slått bossen øverst i Windmill Village – hvil ved Windmill Heights Site of Grace. Millicent er rett ved siden av graceN. Snakk med henne, hun er glad for armen sin og begynner å finne sin egen styrke."
+    ],
+    img: "windmill village.png",
+    imgCaption: "Windmill Village – nordøst i Altus, Millicent er ved Windmill Heights Site of Grace"
+  },
+  {
+    num: 9,
+    title: "Ancient Snow Valley Ruins, Mountaintops",
+    location: "Mountaintops of the Giants, sør for Castle Sol",
+    text: [
+      "Neste gang du møter Millicent er i Mountaintops of the Giants. Se etter henne ved Ancient Snow Valley Ruins Site of Grace, sør for Castle Sol. Snakk med henne – hun gir deg et hint om den hemmelige medaljongen til Haligtree."
+    ],
+    img: "ancient snow valley ruins og castle sol.png",
+    imgCaption: "Ancient Snow Valley Ruins – Millicent venter her i Mountaintops"
+  },
+  {
+    num: 10,
+    title: "Prayer Room, Miquella's Haligtree",
+    location: "Inne i Haligtree",
+    text: [
+      "Når du har kommet deg til Haligtree finner du Millicent ved Prayer Room Site of Grace. Snakk med henne og fortsett videre inn i Haligtree."
+    ],
+    img: "prayer room.png",
+    imgCaption: "Prayer Room – Millicent venter her inne i Haligtree"
+  },
+  {
+    num: 11,
+    title: "Ulcerated Tree Spirit",
+    location: "Dypt i Haligtree",
+    text: [
+      "Dypt i Haligtree må du slå en Ulcerated Tree Spirit. Gå til Drainage Channel Site of Grace og følg veien vestover. Etter bossen – hvil ved et Site of Grace for å trigge neste steg."
+    ]
+  },
+  {
+    num: 12,
+    title: "Det store valget",
+    location: "Elphael, Brace of the Haligtree",
+    text: [
+      "Tilbake ved Drainage Channel vil det dukke opp to tegn på bakken – et gull og et rødt. Dette er questlinens klimaks."
+    ],
+    img: "siste site før slutten av quest.png",
+    imgCaption: "Elphael Inner Wall – det store valget skjer like herfra",
+    warning: "Tenk deg godt om! De to valgene gir forskjellige belønninger og utfall for Millicents skjebne.",
+    choices: [
+      { type: "gold", text: "🟡 Gull-tegn: Hjelp Millicent – bli med henne i kampen mot søstrene. Belønning: Rotten Winged Sword Insignia (talisman som øker skade med påfølgende angrep)." },
+      { type: "red", text: "🔴 Rødt tegn: Invader Millicent – bekjemp henne. Belønning: Millicent's Prosthesis (talisman som øker dex og påfølgende angrep)." }
+    ]
+  },
+  {
+    num: 13,
+    title: "Etter Malenia – Den siste belønningen",
+    location: "Malenia's arena, Haligtree",
+    text: [
+      "Har du fulgt questlinen til ende og slått Malenia – gå tilbake til der hun falt og se etter en stor scarlet blomst. Interact med den mens du har Unalloyed Gold Needle i inventory.",
+      "Det du får her er viktigere enn det ser ut som. Ta godt vare på det."
+    ],
+    reward: "🌸 Miquella's Needle + Somber Ancient Dragon Smithing Stone"
+  }
+];
+
+function renderStep(s, i) {
+  const hasImg2 = s.img2;
+  return `
+  <div class="step" id="step-${s.num}">
+    <div class="step-header" onclick="toggleStep(${s.num})">
+      <div class="step-num">${s.num}</div>
+      <div class="step-title">
+        <h3>${s.title}</h3>
+        <p>${s.location}</p>
+      </div>
+      <span class="chevron" id="chev-${s.num}">▼</span>
+    </div>
+    <div class="step-body" id="body-${s.num}">
+      ${s.img ? `<img src="${BASE}${encodeURIComponent(s.img)}" alt="${s.imgCaption}" class="map-img" loading="lazy"><p class="map-caption">${s.imgCaption}</p>` : ''}
+      ${s.text ? s.text.map(t => `<p>${t}</p>`).join('') : ''}
+      ${s.img2 ? `<img src="${BASE}${encodeURIComponent(s.img2)}" alt="${s.img2Caption}" class="map-img" loading="lazy"><p class="map-caption">${s.img2Caption}</p>` : ''}
+      ${s.warning ? `<div class="warning-box">⚠️ ${s.warning}</div>` : ''}
+      ${s.choices ? s.choices.map(c => `<div class="choice-box ${c.type === 'gold' ? 'choice-gold' : 'choice-red'}">${c.text}</div>`).join('') : ''}
+      ${s.reward ? `<div class="reward-box">🎁 Belønning: ${s.reward}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+function toggleStep(num) {
+  const body = document.getElementById('body-' + num);
+  const chev = document.getElementById('chev-' + num);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chev.classList.toggle('open', !isOpen);
+  updateDots();
+}
+
+function updateDots() {
+  document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+    const body = document.getElementById('body-' + (i + 1));
+    dot.className = 'progress-dot' + (body && body.classList.contains('open') ? ' active' : '');
+  });
+}
+
+const container = document.getElementById('steps-container');
+container.innerHTML = STEPS.map(renderStep).join('');
+
+const dots = document.getElementById('progress-dots');
+dots.innerHTML = STEPS.map((s, i) => `<div class="progress-dot" onclick="scrollToStep(${s.num})" title="Steg ${s.num}: ${s.title}"></div>`).join('');
+
+function scrollToStep(num) {
+  const el = document.getElementById('step-' + num);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
