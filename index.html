@@ -24,7 +24,7 @@
   .container { max-width: 680px; margin: 0 auto; }
 
   .hero { position: relative; border: 0.5px solid var(--border-gold); border-radius: var(--radius); padding: 2.5rem 2rem 2rem; margin-bottom: 2rem; overflow: hidden; background: #100d07; }
-  .hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8921a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8921a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
   .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: var(--gold-dim); margin-bottom: 0.5rem; text-transform: uppercase; }
   .hero-title { font-family: 'Cinzel', serif; font-size: 26px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.25rem; line-height: 1.2; }
   .hero-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 1.5rem; }
@@ -57,7 +57,7 @@
 
   .sub-section { margin-top: 1.5rem; border-top: 0.5px solid var(--border); padding-top: 1.25rem; }
   .sub-section-title { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; color: var(--gold-dim); margin-bottom: 0.75rem; }
-  .sub-item { display: flex; gap-10px; align-items: flex-start; padding: 10px 12px; border-radius: var(--radius-sm); margin-bottom: 6px; border: 0.5px solid #1e2a10; background: #0e1208; font-size: 13px; color: var(--text-secondary); line-height: 1.6; gap: 10px; }
+  .sub-item { display: flex; align-items: flex-start; padding: 10px 12px; border-radius: var(--radius-sm); margin-bottom: 6px; border: 0.5px solid #1e2a10; background: #0e1208; font-size: 13px; color: var(--text-secondary); line-height: 1.6; gap: 10px; }
   .sub-item:last-child { margin-bottom: 0; }
   .sub-item::before { content: '⚔'; flex-shrink: 0; margin-top: 1px; }
   .sub-item.talisman { border-color: #2a2040; background: #12101a; }
@@ -113,12 +113,7 @@
 <script>
 const SECTIONS = [
   {
-    id: 's0',
-    title: 'Grunnleggende mekanikker',
-    subtitle: 'Les dette først',
-    icon: 'ti-bulb',
-    badge: 'Start her',
-    type: 'tips',
+    id: 's0', title: 'Grunnleggende mekanikker', subtitle: 'Les dette først', icon: 'ti-bulb', badge: 'Start her', type: 'tips',
     tips: [
       { group: 'Viktige mekanikker', items: [
         { type: 'mechanic', icon: '🔥', text: '<strong>Sites of Grace</strong> er dine sjekkpunkter og respawn-punkter. Alltid aktiver disse når du ser dem – de lyser opp som gylne støvfontener.' },
@@ -136,109 +131,123 @@ const SECTIONS = [
     ]
   },
   {
-    id: 's1',
-    title: 'Limgrave',
-    subtitle: 'Der du er nå',
-    icon: 'ti-map-pin',
-    badge: 'Nåværende',
-    type: 'prose',
-    prose: ['Elden Ring er stort og det kan føles overveldende – men det er en del av opplevelsen. Ta deg god tid, utforsk i alle retninger og snakk med alle du møter.', 'Følg de gyldne lysglimtene fra Sites of Grace – de peker deg generelt i riktig retning. Hesten din er din beste venn; du får den tidlig, ikke gå glipp av det.', 'Hvis du snubler inn i et område som føles helt umulig og alt er rødt og sykt – ikke fortvil. Det kan hende du har funnet et sted du ikke er klar for enda. Elden Ring er åpen, og det er lov å snu.'],
-    weapons: ['Det finnes et evergaol sørøst i Limgrave – et magisk fengsel hvor en boss er fanget inni. På kartet ser de ut som en glødende sirkel. Gå bort til det og trykk interact for å entre. Slå ham og du får et av spillets beste kurvesverd – det kommer med en kraftig Ash of War du aktiverer ved å holde inne SHIFT og trykke høyre musetast.', 'Rett ved ruinene nær der du startet spillet er det en nedgang under bakken. Der gjemmer det seg et unikt tospiss-sverd med en morsom spillestil – men vær obs på hva som lurer ute i vannet like ved...', 'Utforsk gjerne helt sør i Limgrave – det åpner seg et eget lite område kalt Weeping Peninsula. Det er vakkert, litt dystert, og gjemmer et massivt kolossvåpen på slutten. Ash of War-en til dette våpenet er en av de råeste i spillet.'],
-    talismans: ['I en liten underjordisk hule i Summonwater Village øst i Limgrave gjemmer det seg en talisman som øker stamina-regenerasjon. Nyttig gjennom hele spillet.', 'Gjemt dypt i en dungeon nær starten (Fringefolk Hero\'s Grave) – trenger to Stonesword Keys for å entre. Øker HP, stamina og equip load samtidig. En av de beste tidlig i spillet.']
+    id: 's1', title: 'Limgrave', subtitle: 'Der du er nå', icon: 'ti-map-pin', badge: 'Nåværende', type: 'prose',
+    prose: [
+      'Elden Ring er stort og det kan føles overveldende – men det er en del av opplevelsen. Ta deg god tid, utforsk i alle retninger og snakk med alle du møter.',
+      'Følg de gyldne lysglimtene fra Sites of Grace – de peker deg generelt i riktig retning. Hesten din er din beste venn; du får den tidlig, ikke gå glipp av det.',
+      'Hvis du snubler inn i et område som føles helt umulig og alt er rødt og sykt – ikke fortvil. Det kan hende du har funnet et sted du ikke er klar for enda. Elden Ring er åpen, og det er lov å snu.'
+    ],
+    weapons: [
+      'Det finnes et evergaol sørøst i Limgrave – et magisk fengsel hvor en boss er fanget inni. På kartet ser de ut som en glødende sirkel. Gå bort til det og trykk interact for å entre. Slå ham og du får et av spillets beste kurvesverd – det kommer med en kraftig Ash of War du aktiverer ved å holde inne SHIFT og trykke høyre musetast.',
+      'Rett ved ruinene nær der du startet spillet er det en nedgang under bakken. Der gjemmer det seg et unikt tospiss-sverd med en morsom spillestil – men vær obs på hva som lurer ute i vannet like ved...',
+      'Utforsk gjerne helt sør i Limgrave – det åpner seg et eget lite område kalt Weeping Peninsula. Det er vakkert, litt dystert, og gjemmer et massivt kolossvåpen på slutten. Ash of War-en til dette våpenet er en av de råeste i spillet.'
+    ],
+    talismans: [
+      'I en liten underjordisk hule i Summonwater Village øst i Limgrave gjemmer det seg en talisman som øker stamina-regenerasjon. Nyttig gjennom hele spillet.',
+      'Gjemt dypt i en dungeon nær starten (Fringefolk Hero\'s Grave) – trenger to Stonesword Keys for å entre. Øker HP, stamina og equip load samtidig. En av de beste tidlig i spillet.'
+    ]
   },
   {
-    id: 's2',
-    title: 'Stormveil Castle',
-    subtitle: 'Etter Margit',
-    icon: 'ti-castle',
-    badge: 'Låst',
-    password: 'stormveil',
-    hint: 'Lås opp når du har slått Margit',
-    type: 'prose',
-    prose: ['Borgen er stor og kan virke overveldende, men ikke stress. Det finnes flere veier frem enn du kanskje tror – utforsk sideganger og vær nysgjerrig.', 'Snakk med alle du møter, og vær litt kritisk til de du ikke stoler på. Borgen belønner de som tar seg tid.'],
+    id: 's2', title: 'Stormveil Castle', subtitle: 'Etter Margit', icon: 'ti-castle', badge: 'Låst', password: 'stormveil', hint: 'Lås opp når du har slått Margit', type: 'prose',
+    prose: [
+      'Borgen er stor og kan virke overveldende, men ikke stress. Det finnes flere veier frem enn du kanskje tror – utforsk sideganger og vær nysgjerrig.',
+      'Snakk med alle du møter, og vær litt kritisk til de du ikke stoler på. Borgen belønner de som tar seg tid.'
+    ],
     weapons: ['Inne i borgen er det en krypt – let grundig i sideganger og du finner en av spillets beste katanas. Rask, presis og med en god Ash of War fra start.'],
     talismans: ['Let etter en utgang fra et rom med en heis i borgen. Klatr opp på taket og finn en kropp med en talisman. Den øker alle stats litt mot at du tar litt mer skade – high risk, high reward, og veldig nyttig tidlig.']
   },
   {
-    id: 's3',
-    title: 'Liurnia of the Lakes',
-    subtitle: 'Etter Stormveil',
-    icon: 'ti-droplet',
-    badge: 'Låst',
-    password: 'liurnia',
-    hint: 'Lås opp når du er ferdig med Stormveil',
-    type: 'prose',
-    prose: ['Etter Stormveil åpner verden seg skikkelig. Liurnia er vakkert, stort og fullt av hemmeligheter – både over og under bakken. Ikke stress med å finne "riktig" vei, bare vær nysgjerrig.', 'For å komme inn i akademiet trenger du en spesiell nøkkel. Ved hovedporten ligger det et lik med et kart – dette kartet viser deg omtrent hvor nøkkelen er. Den befinner seg på en øy vest for akademiet, på kroppen til en død trollmann. Men det er ikke tomt der – noe stort og blått sover like ved. Du trenger ikke slåss mot det, bare vær forsiktig og lur deg rundt.', 'Før du forlater Liurnia – det finnes en mystisk struktur med fire tårn i området. Utforsk den, hva den gjør får du se selv.'],
+    id: 's3', title: 'Liurnia of the Lakes', subtitle: 'Etter Stormveil', icon: 'ti-droplet', badge: 'Låst', password: 'liurnia', hint: 'Lås opp når du er ferdig med Stormveil', type: 'prose',
+    prose: [
+      'Etter Stormveil åpner verden seg skikkelig. Liurnia er vakkert, stort og fullt av hemmeligheter – både over og under bakken. Ikke stress med å finne "riktig" vei, bare vær nysgjerrig.',
+      'I nordvest Liurnia finner du tre tårn. Klatr opp i det midterste og snakk med hun som bor der – hun har en av spillets lengste og mest ambisiøse historier å fortelle. Spør meg om koden når du er klar.',
+      'For å komme inn i akademiet trenger du en spesiell nøkkel. Ved hovedporten ligger det et lik med et kart – dette kartet viser deg omtrent hvor nøkkelen er. Den befinner seg på en øy vest for akademiet, på kroppen til en død trollmann. Men det er ikke tomt der – noe stort og blått sover like ved. Du trenger ikke slåss mot det, bare vær forsiktig og lur deg rundt.',
+      'Før du forlater Liurnia – det finnes en mystisk struktur med fire tårn i området. Utforsk den, hva den gjør får du se selv.'
+    ],
     weapons: ['I en sunken by sørøst i Liurnia er det et tårn med en kiste i bunnen. Enkel å hente ut, og gir deg et solid og raskt etterhånds-våpen som passer godt til mange builds.'],
     talismans: ['Hold øynene åpne inne i akademiet – det gjemmer seg nyttige ting i sideganger og på tak.']
   },
   {
-    id: 's4',
-    title: 'Caelid',
-    subtitle: 'Valgfritt, men viktig',
-    icon: 'ti-skull',
-    badge: 'Låst',
-    password: 'caelid',
-    hint: 'Lås opp når du er klar for Caelid',
-    type: 'prose',
-    prose: ['Så, du har vært her allerede. Caelid er et av spillets råeste områder – rødt, sykt og nådeløst. Men når du er klar er det veldig givende å utforske grundig. Nordlige deler er farligere enn sør, så ta det gradvis.', 'Det lurer seg en festival i Caelid du ikke vil gå glipp av.', 'Hold øye med en syk kvinne du møter tidlig i området. Hun sitter ved en kirke i den sørlige delen av Caelid – ikke den vanskeligste delen å nå. Hennes historie er en av de mest minneverdige i hele spillet, og det lønner seg å følge den til ende. Vi lager en egen guide for questlinen hennes senere!'],
-    weapons: ['Se etter en stor vogn med to troll som drar den nordvest i Caelid. I kisten bak vognen ligger et av spillets råeste store sverd – tungt, brutalt og fantastisk. Dette er også mitt personlige favorittvåpen i hele spillet!', 'Inne i Sellia Crystal Tunnel – en dungeon midt i Caelid – gjemmer det seg et par kraftige knyttnevevåpen. Perfekt for de som liker å slå hardt og raskt på nært hold.'],
+    id: 's4', title: 'Caelid', subtitle: 'Valgfritt, men viktig', icon: 'ti-skull', badge: 'Låst', password: 'caelid', hint: 'Lås opp når du er klar for Caelid', type: 'prose',
+    prose: [
+      'Så, du har vært her allerede. Caelid er et av spillets råeste områder – rødt, sykt og nådeløst. Men når du er klar er det veldig givende å utforske grundig. Nordlige deler er farligere enn sør, så ta det gradvis.',
+      'Det lurer seg en festival i Caelid du ikke vil gå glipp av.',
+      'Hold øye med en syk kvinne du møter tidlig i området. Hun sitter ved en kirke i den sørlige delen av Caelid – ikke den vanskeligste delen å nå. Hennes historie er en av de mest minneverdige i hele spillet, og det lønner seg å følge den til ende. Vi lager en egen guide for questlinen hennes senere!'
+    ],
+    weapons: [
+      'Se etter en stor vogn med to troll som drar den nordvest i Caelid. I kisten bak vognen ligger et av spillets råeste store sverd – tungt, brutalt og fantastisk. Dette er også mitt personlige favorittvåpen i hele spillet!',
+      'Inne i Sellia Crystal Tunnel – en dungeon midt i Caelid – gjemmer det seg et par kraftige knyttnevevåpen. Perfekt for de som liker å slå hardt og raskt på nært hold.'
+    ],
     ashes: ['Fort Gael vest i Caelid – porten foran er låst, men det finnes en stige på siden av borgen. Klatr opp og dropp ned i gårdsplassen. Der inne patruljerer et stort løvedyr. Slå det og du får en av spillets råeste Ashes of War – en spektakulær salto-angrep som gjør massiv skade. Passer perfekt på store sverd og økser.'],
-    talismans: ['I en hule i Caelid er det to bosser som kjemper side om side. Slå dem begge og du får en talisman som øker alle Runes du tjener med 20% – veldig nyttig for leveling.', 'I Fort Faroth nordøst i Caelid – klatr opp på taket og dropp ned gjennom en åpning. Der ligger en kropp med en talisman som booster alle dine kamp-stats litt, mot at du tar litt mer skade. Sterkere versjon av den du fant i Stormveil.']
+    talismans: [
+      'I en hule i Caelid er det to bosser som kjemper side om side. Slå dem begge og du får en talisman som øker alle Runes du tjener med 20% – veldig nyttig for leveling.',
+      'I Fort Faroth nordøst i Caelid – klatr opp på taket og dropp ned gjennom en åpning. Der ligger en kropp med en talisman som booster alle dine kamp-stats litt, mot at du tar litt mer skade. Sterkere versjon av den du fant i Stormveil.'
+    ]
   },
   {
-    id: 's5',
-    title: 'Altus Plateau',
-    subtitle: 'Midtveis i spillet',
-    icon: 'ti-mountain',
-    badge: 'Låst',
-    password: 'altus',
-    hint: 'Lås opp ved Altus-platået',
-    type: 'prose',
-    prose: ['For å komme opp til Altus trenger du to halvdeler av en medallion. Den venstre halvdelen finner du i Fort Haight sørøst i Limgrave – klatr opp til toppen av det høyeste tårnet og åpne kisten. Den høyre halvdelen finner du i Fort Faroth nordøst i Caelid – løp forbi flaggermusene inn og klatr opp stigen, kisten er rett foran deg. Ta begge tilbake til heisen, hold opp medaljongen og veien opp åpner seg!', 'Leyndell, den kongelige hovedstaden, venter deg et sted herfra. Men det er mye å oppdage underveis – fjell, slott og folk med mørke hemmeligheter. Ta deg god tid og snakk med alle du møter.', 'Du vil også begynne å kjenne igjen visse navn og ansikter. Elden Ring begynner å binde seg sammen her.'],
-    weapons: ['Følg med på en NPC du møter langs elven i Limgrave – han dukker opp igjen på Altus Plateau ved en kirke. Fullfør hans lille historie og du får en fantastisk katana som belønning.', 'I Shaded Castle nord i Altus er det en boss. Slå ham for å få et Greatsword med en av spillets morsomste weapon skills – sverdets arm spinner som en propell og river gjennom alt.'],
+    id: 's5', title: 'Altus Plateau', subtitle: 'Midtveis i spillet', icon: 'ti-mountain', badge: 'Låst', password: 'altus', hint: 'Lås opp ved Altus-platået', type: 'prose',
+    prose: [
+      'For å komme opp til Altus trenger du to halvdeler av en medallion. Den venstre halvdelen finner du i Fort Haight sørøst i Limgrave – klatr opp til toppen av det høyeste tårnet og åpne kisten. Den høyre halvdelen finner du i Fort Faroth nordøst i Caelid – løp forbi flaggermusene inn og klatr opp stigen, kisten er rett foran deg. Ta begge tilbake til heisen, hold opp medaljongen og veien opp åpner seg!',
+      'Leyndell, den kongelige hovedstaden, venter deg et sted herfra. Men det er mye å oppdage underveis – fjell, slott og folk med mørke hemmeligheter. Ta deg god tid og snakk med alle du møter.',
+      'Du vil også begynne å kjenne igjen visse navn og ansikter. Elden Ring begynner å binde seg sammen her.'
+    ],
+    weapons: [
+      'Følg med på en NPC du møter langs elven i Limgrave – han dukker opp igjen på Altus Plateau ved en kirke. Fullfør hans lille historie og du får en fantastisk katana som belønning.',
+      'I Shaded Castle nord i Altus er det en boss. Slå ham for å få et Greatsword med en av spillets morsomste weapon skills – sverdets arm spinner som en propell og river gjennom alt.'
+    ],
     talismans: ['Følg en vennlig NPC med en krukke på hodet gjennom hele spillet – fullfør hans reise og få en av de beste talismanene for å booste Ash of War-skade. Han dukker opp flere steder underveis, så hold øynene åpne.']
   },
   {
-    id: 's6',
-    title: 'Mt. Gelmir',
-    subtitle: 'Vest for Altus',
-    icon: 'ti-flame',
-    badge: 'Låst',
-    password: 'gelmir',
-    hint: 'Lås opp ved Mt. Gelmir',
-    type: 'prose',
-    prose: ['Fjellene vest for Altus gjemmer noe du ikke vil gå glipp av. Følg veien oppover og utforsk grundig – det er lett å misse dette området hvis du rusher mot Leyndell.', 'Øverst på fjellet finner du Volcano Manor – et herskapshus med en mørk og fristende questline. Folkene du møter der har sine egne agendaer – vær nysgjerrig, still spørsmål, og tenk deg om før du takker ja til det de tilbyr. Det er konsekvenser her.', 'Hold øye med en kjent ansikt med krukke på hodet – han dukker opp igjen her på sin reise.']
+    id: 's6', title: 'Mt. Gelmir', subtitle: 'Vest for Altus', icon: 'ti-flame', badge: 'Låst', password: 'gelmir', hint: 'Lås opp ved Mt. Gelmir', type: 'prose',
+    prose: [
+      'Fjellene vest for Altus gjemmer noe du ikke vil gå glipp av. Følg veien oppover og utforsk grundig – det er lett å misse dette området hvis du rusher mot Leyndell.',
+      'Øverst på fjellet finner du Volcano Manor – et herskapshus med en mørk og fristende questline. Folkene du møter der har sine egne agendaer – vær nysgjerrig, still spørsmål, og tenk deg om før du takker ja til det de tilbyr. Det er konsekvenser her.',
+      'Hold øye med en kjent ansikt med krukke på hodet – han dukker opp igjen her på sin reise.'
+    ]
   },
   {
-    id: 's7',
-    title: 'Leyndell, Royal Capital',
-    subtitle: 'Den kongelige hovedstaden',
-    icon: 'ti-building',
-    badge: 'Låst',
-    password: 'leyndell',
-    hint: 'Lås opp ved Leyndell',
-    type: 'prose',
-    prose: ['Leyndell er stort, vakkert og overveldende på samme tid. En hel by å utforske – ta deg god tid og vær nysgjerrig i alle kroker og hjørner.', 'En advarsel: ikke alt som ser ut som bakgrunnspynt er det. Noe av det største og farligste i spillet gjemmer seg midt i byen – du vil vite når du møter det.', 'Det finnes flere interessante sjeler å snakke med her, både kjente ansikter og nye. Noen av historiene deres er rørende, andre er mørkere. Følg dem alle.', 'Under byen gjemmer det seg noe. Det er ikke lett å finne, men er du typen som liker å lete i mørke kroker er det verdt det.', 'Elden Ring begynner å nærme seg sitt klimaks her – nyt det.'],
+    id: 's7', title: 'Leyndell, Royal Capital', subtitle: 'Den kongelige hovedstaden', icon: 'ti-building', badge: 'Låst', password: 'leyndell', hint: 'Lås opp ved Leyndell', type: 'prose',
+    prose: [
+      'Leyndell er stort, vakkert og overveldende på samme tid. En hel by å utforske – ta deg god tid og vær nysgjerrig i alle kroker og hjørner.',
+      'En advarsel: ikke alt som ser ut som bakgrunnspynt er det. Noe av det største og farligste i spillet gjemmer seg midt i byen – du vil vite når du møter det.',
+      'Det finnes flere interessante sjeler å snakke med her, både kjente ansikter og nye. Noen av historiene deres er rørende, andre er mørkere. Følg dem alle.',
+      'Under byen gjemmer det seg noe. Det er ikke lett å finne, men er du typen som liker å lete i mørke kroker er det verdt det.',
+      'Elden Ring begynner å nærme seg sitt klimaks her – nyt det.'
+    ],
     weapons: ['Se opp mens du utforsker byen – det er umulig å overse et gigantisk spyd stukket ned i en bygning. Klatr opp dit og du finner et av spillets mest ikoniske våpen.'],
     talismans: ['Det finnes en ekstra talisman-slot å hente inne i byen – hold øynene åpne, den er ikke helt lett å finne men det er verdt det.']
   },
   {
-    id: 's8',
-    title: 'Endgame – Mountaintops of the Giants',
-    subtitle: 'Toppen av verden',
-    icon: 'ti-crown',
-    badge: 'Låst',
-    password: 'erdtree',
-    hint: 'Lås opp når du nærmer deg slutten',
-    type: 'prose',
-    prose: ['Velkommen til mitt favorittsted i Elden Ring. Første gang man kommer hit er det vanskelig å ikke bare stå stille og se seg rundt.', 'Det er mye som venter deg her oppe – noen av spillets største øyeblikk, hemmelige områder som krever litt detektivarbeid for å finne, og noen av de mest episke bossene i hele spillet.', 'Øverst i Mountaintops venter en av spillets mest episke bossfighter – en gigantisk skapning som har voktet dette stedet i evigheter. Ta deg god tid og vær tålmodig, det er mye bevegelse å lese.', 'Etter at han er beseiret, fortsett oppover. Følg stien forbi de massive kjettingene – du kan ikke ta feil av dem. Øverst venter noe som ligner et gigantisk krus eller kar. Dette er Forge of the Giants, og det er her historien tar en dramatisk vending. Ikke rush videre – ta deg tid til å oppleve øyeblikket fullt ut.', 'Det som skjer videre sender deg til et av spillets mest surrealistiske og vakre områder – svevende ruiner høyt over skyene. Utforsk grundig, det er mye å finne her.', 'Mot slutten av dette området venter en boss som permanent forandrer verden du kjenner. Ingenting blir det samme etterpå – men det er slik Elden Ring er. Dramatisk, nådeløst og fantastisk.', 'Husker du den syke kvinnen fra Caelid? Hun dukker opp igjen her oppe – se etter henne ved Ancient Snow Valley Ruins, et Site of Grace sør for Castle Sol. Snakk med henne og følg historien hennes videre – hun er ikke ferdig med reisen sin enda.', 'Det finnes et hemmelig område gjemt bak en alternativ bruk av heisen ved Grand Lift of Rold. For å komme dit trenger du to halvdeler av en hemmelig medallion. Den høyre halvdelen finner du i Liurnia – i en liten landsby sørvest i området bor det en NPC som gjemmer seg, let godt rundt i landsbyen. Den venstre halvdelen finner du i Castle Sol nordøst i Mountaintops – slå bossen øverst i borgen og klatr opp stigen, medaljongen ligger på toppen. Når du har begge: gå til Grand Lift of Rold og velg "Hoist Secret Medallion" – ikke den vanlige! Dette tar deg til en hemmelig sti som leder til en snøverden. Der venter noe av det vanskeligste og mest minneverdige i hele spillet.'],
+    id: 's8', title: 'Endgame – Mountaintops of the Giants', subtitle: 'Toppen av verden', icon: 'ti-crown', badge: 'Låst', password: 'erdtree', hint: 'Lås opp når du nærmer deg slutten', type: 'prose',
+    prose: [
+      'Velkommen til mitt favorittsted i Elden Ring. Første gang man kommer hit er det vanskelig å ikke bare stå stille og se seg rundt.',
+      'Det er mye som venter deg her oppe – noen av spillets største øyeblikk, hemmelige områder som krever litt detektivarbeid for å finne, og noen av de mest episke bossene i hele spillet.',
+      'Øverst i Mountaintops venter en av spillets mest episke bossfighter – en gigantisk skapning som har voktet dette stedet i evigheter. Ta deg god tid og vær tålmodig, det er mye bevegelse å lese.',
+      'Etter at han er beseiret, fortsett oppover. Følg stien forbi de massive kjettingene – du kan ikke ta feil av dem. Øverst venter noe som ligner et gigantisk krus eller kar. Dette er Forge of the Giants, og det er her historien tar en dramatisk vending. Ikke rush videre – ta deg tid til å oppleve øyeblikket fullt ut.',
+      'Det som skjer videre sender deg til et av spillets mest surrealistiske og vakre områder – svevende ruiner høyt over skyene. Utforsk grundig, det er mye å finne her.',
+      'Mot slutten av dette området venter en boss som permanent forandrer verden du kjenner. Ingenting blir det samme etterpå – men det er slik Elden Ring er. Dramatisk, nådeløst og fantastisk.',
+      'Husker du den syke kvinnen fra Caelid? Hun dukker opp igjen her oppe – se etter henne ved Ancient Snow Valley Ruins, et Site of Grace sør for Castle Sol. Snakk med henne og følg historien hennes videre – hun er ikke ferdig med reisen sin enda.',
+      'Før du går videre mot slutten – det finnes et hemmelig område som er verdt å utforske først. Det er her noen av spillets mest minneverdige øyeblikk venter, inkludert en fight som mange mener er den beste i hele FromSoftware sin historie. Spør meg om passordet når du er klar for Consecrated Snowfield.',
+      'Det finnes et hemmelig område gjemt bak en alternativ bruk av heisen ved Grand Lift of Rold. For å komme dit trenger du to halvdeler av en hemmelig medallion. Den høyre halvdelen finner du i Liurnia – i en liten landsby sørvest i området bor det en NPC som gjemmer seg, let godt rundt i landsbyen. Den venstre halvdelen finner du i Castle Sol nordøst i Mountaintops – slå bossen øverst i borgen og klatr opp stigen, medaljongen ligger på toppen. Når du har begge: gå til Grand Lift of Rold og velg "Hoist Secret Medallion" – ikke den vanlige!'
+    ],
     weapons: ['Utenfor en kirke i Mountaintops vil du bli invadert. Ikke løp unna – slå invasjonen og du får en av spillets mest legendariske katanas med en brutal bleed-effekt.'],
     talismans: ['Like ved en kirke i området finner du en Sacred Tear – bruk den til å oppgradere flaskene dine. Du trenger dem her oppe!']
+  },
+  {
+    id: 's9', title: 'Ranni Questline', subtitle: 'Den mystiske heksen', icon: 'ti-moon', badge: 'Låst', password: 'ranni', hint: 'Lås opp når du er klar for Ranni sin questline', type: 'prose',
+    prose: [
+      'I nordvest Liurnia finner du tre tårn – Ranni\'s Rise er det midterste. Klatr opp og snakk med henne som sitter øverst. Hun er ikke helt som andre NPCer du har møtt, og historien hennes er en av de mest ambisiøse i hele spillet. Takk ja til å tjene henne.',
+      'Questlinen hennes tar deg til noen av spillets mest minneverdige og vakre steder – langt under bakken og langt opp i skyene. Følg trådene hun gir deg, snakk med alle hun sender deg til, og vær tålmodig. Det er mye å finne her.',
+      'Når veien åpner seg finner du en hemmelig by under bakken – Nokron, Eternal City. En vakker og melankolsk plass med unike fiender og viktige items for questlinen.',
+      'Dypere under bakken finner du Ainsel River – en underjordisk elv med sin egen lille hemmelighet å løse. Let godt.',
+      'Videre venter Lake of Rot – akkurat det det høres ut som. En hel innsjø fylt med Scarlet Rot som tærer på deg sakte. Ha nok Preserving Boluses (lages ved et Site of Grace) før du går inn, og beveg deg raskt. Det er noe viktig på den andre siden.',
+      'En boss venter i hulen etter innsjøen – en av spillets mest surrealistiske skapninger. Slå den, og questlinen nærmer seg slutten.',
+      'Fullfør alt, og du åpner Moonlight Altar – et platå høyt oppe i Liurnia med utsikt over hele verden. Der venter en av spillets mest ikoniske og vakre våpen som belønning.'
+    ]
   }
 ];
 
-const STORAGE_KEY = 'er_guide_v4';
+const STORAGE_KEY = 'er_guide_v5';
 let unlocked = new Set(['s0', 's1']);
 try { JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]').forEach(x => unlocked.add(x)); } catch(e) {}
 function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...unlocked])); } catch(e) {} }
@@ -259,15 +268,9 @@ function renderSubItems(items, cls) {
 
 function renderProse(s) {
   let html = s.prose.map(p => `<p>${p}</p>`).join('');
-  if (s.weapons && s.weapons.length) {
-    html += `<div class="sub-section"><div class="sub-section-title">⚔ Våpen å se etter</div>${renderSubItems(s.weapons, '')}</div>`;
-  }
-  if (s.ashes && s.ashes.length) {
-    html += `<div class="sub-section"><div class="sub-section-title">✨ Ashes of War å se etter</div>${renderSubItems(s.ashes, 'ash')}</div>`;
-  }
-  if (s.talismans && s.talismans.length) {
-    html += `<div class="sub-section"><div class="sub-section-title">🔮 Talismaner å se etter</div>${renderSubItems(s.talismans, 'talisman')}</div>`;
-  }
+  if (s.weapons && s.weapons.length) html += `<div class="sub-section"><div class="sub-section-title">⚔ Våpen å se etter</div>${renderSubItems(s.weapons, '')}</div>`;
+  if (s.ashes && s.ashes.length) html += `<div class="sub-section"><div class="sub-section-title">✨ Ashes of War å se etter</div>${renderSubItems(s.ashes, 'ash')}</div>`;
+  if (s.talismans && s.talismans.length) html += `<div class="sub-section"><div class="sub-section-title">🔮 Talismaner å se etter</div>${renderSubItems(s.talismans, 'talisman')}</div>`;
   return html;
 }
 
